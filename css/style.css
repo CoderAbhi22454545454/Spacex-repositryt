@@ -1,0 +1,876 @@
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+@import '/css/utilities.css';
+
+:root{
+    --primary: #1E1E1E;
+    --dark : #000000;
+    --pure : #ffffff;
+    --gray : #1d1d1d;
+    --mild : #b9b8b8;
+
+}
+
+
+
+
+*{
+    padding : 0;
+    margin : 0;
+    box-sizing: border-box;
+    -webkit-smoothing:antialiased;   
+}
+
+body {
+
+   font-family: 'Montserrat', sans-serif;
+   /* height:4000px; */
+   background: var(--gray);
+   color: var(--pure);
+   /* color: ; */
+}
+
+
+/* Header section */
+
+header{
+
+    /* this is how we can add bg img in section and tint it */
+    background: linear-gradient(135deg, rgba(0,0,0,1) ,rgba(0,0,0,0.2)),
+    url('../images/sunrise.jpg');
+    min-height: 100vh;
+    background-size: cover;
+}
+
+
+/* navbar */
+header nav {
+    padding: 20px 40px 20px 100px;
+
+    /* using grid for make in right position */
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    border-bottom: 1px solid var(--gray) ;
+}
+
+
+header nav  .nav-right{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header nav  .nav-right a {
+    text-decoration: none;
+    color: var(--pure);
+    margin-right: 30px;
+    position: relative;
+}
+
+
+/* now we gone use after psuedo element for border style in nav */
+
+header nav  .nav-right a::after{
+       content: "";
+       position: absolute;
+       left: 0;
+       bottom: -30px;
+       width: 0;
+       height: 2px;
+       background: var(--pure);
+       transition: width .3s ease-in-out;
+  
+}
+
+
+header nav  .nav-right a:hover::after{
+    width:95%;
+}
+
+
+/* header nav  .nav-right  a.active::after{
+  width:100%;
+} */
+
+/* search button */
+
+header nav  .nav-right .search > div{
+      background: var(--dark);
+      display: flex;
+      align-items: center;
+      padding: 10px 15px;
+      border-radius: 45px;
+}
+
+
+header nav  .nav-right .search > div input{
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--pure)
+}
+
+header nav  .nav-right .search > div img{
+    padding-right: 16px;
+}
+
+
+
+/* Hero Section */
+
+.social div{
+
+    border: 2px solid var(--pure);
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    margin-bottom: 30px;
+    opacity: 0;
+ 
+
+}
+/* for making social icons pop up animation  using keyFrame*/
+@keyframes moveIn{
+    from {
+        transform: translateX(-100px);
+    }
+    to{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+
+/* icona is svg which is coming from font awesome. */
+
+.social svg path{
+        
+    /* to change color of svg use fill */
+    fill:var(--pure);
+}
+ /* for hover - make color dark */
+.social div:hover svg path{
+    fill: var(--dark);
+    transition:all 0.5s ease-in-out;
+}
+
+/* and make background white */
+.social div:hover{
+    background: var(--pure);
+}
+
+
+/* for right side border and making icons to center */
+.hero{
+    position: relative;
+}
+
+
+.social{
+    position:absolute;
+    left:0;
+    top:0;
+    border-right:1px solid var(--gray);
+    width:100px;
+    
+    /* for making into center */
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    min-height: 90vh;
+}
+
+/* Astronaut img and text part */
+
+.hero .cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height:calc(100vh -80px);
+}
+
+
+
+.cta .left-section h1{
+    font-weight: 400;
+    color: var(--pure);
+    font-size: 22px;
+    line-height:1.7;
+    margin-bottom: 30px;
+}
+
+.hero .cta > div{
+    flex: 1;
+}
+
+
+.cta .left-section{
+    padding: 0 60px 0 30px ;
+    margin-top: 140px;
+}
+
+.hero .cta img{
+    margin-top: 70px;
+    height: 70vh;
+    transform:rotate(20deg);
+    animation: moveInSpace 12s ease-in-out infinite alternate;
+}
+/* animation for move it in spcae */
+@keyframes moveInSpace {
+            50%{
+                transform: translateY(100px) rotate(-30deg) scale(0.8);
+            }
+}
+
+
+
+
+/* Starlink Section */
+
+
+section.strip{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding:50px 0 ;
+    background: var(--dark);
+
+}
+
+section.strip h3 {
+    color: var(--pure)
+}
+
+
+
+
+
+/* STARSHIP SECTION */
+
+section #starship {
+
+}
+
+section .starship {
+    display: grid;
+    grid-template-columns:  1fr 1fr;
+    column-gap: 0px;
+}
+
+
+/* section .starship3 img {
+    height: 600px;
+    width:100vh; 
+}*/
+
+.starship1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 35px;
+    border-top: 8px solid var(--pure);
+
+}
+
+.starship h1 {
+    font-size:50px;
+    font-weight: 500;
+}
+.starship1 h1 .with-underline {
+   
+    margin-bottom: 20px;
+    position: relative;
+  
+}
+
+
+
+.starship h1::after{
+    content: "";
+    position: absolute;
+    left: 1;
+    bottom: 10;
+    display: block;
+    width: 11%;
+    height: 2px;
+    background: var(--pure);
+
+}
+
+.starship p {
+    margin-top:20px;
+    line-height:2;
+    font-weight: 400;
+    font-size: 20px;
+}
+.starship  button {
+    margin-top:20px;
+}
+
+
+.starship2 img {
+    line-height:0;
+      /* margin-top:20px; */
+       width: 930px;
+}
+
+
+.starship4{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 35px;
+    border-bottom: 10px solid white;
+
+}
+
+
+
+
+/* News Section */
+
+
+#news {
+    /* margin-top:120px; */
+    margin-bottom:50px;
+    background-color: var(--dark);
+}
+#news .heading h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+    padding: 50px 50px;
+    color: var(--pure);
+    font-size: 50px;
+    font-weight: 400;
+    position: relative;
+    top:50px; 
+    margin-bottom:100px;
+    /* border-bottom: 2px solid var(--pure); */
+}
+
+#news .heading h1::after{
+   
+    content: "";
+    position: absolute;
+    left: 41.5%;
+    bottom: 45px;
+    display: block;
+    width:16%;
+    height: 2px;
+    background: var(--pure)
+}
+
+
+.news {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.news img {
+    height:300px;
+    width:500px;
+    /* width:400px; */
+}
+
+.news1{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* text-align: center; */
+  padding:12px 67px;
+
+  /* border: 2px solid var(--mild); */
+
+}
+
+.news h1 {
+    /* text-align: center; */
+    font-weight: 400;
+    margin-bottom:20px;
+    font-size: 26px;
+    color: var(--pure);
+    
+}
+
+.news p {
+    /* text-align: center; */
+    font-weight: 500;
+    margin-bottom:30px;
+    font-size: 18px;
+    /* line-height:1.5; */
+    color: var(--mild);
+
+}
+
+.news2{
+  display:flex;
+  flex-direction: column;
+   align-items: center;
+  justify-content: center; 
+  /* text-align: center; */
+  padding:12px 67px;
+  /* border: 2px solid var(--mild); */
+
+}
+
+.news3{
+  display:flex;
+  flex-direction: column;
+   align-items: center;
+  justify-content: center; 
+   /* text-align: center;  */
+  padding:12px 67px;
+  /* border: 1px solid var(--mild); */
+}
+
+#news button{
+
+    margin:50px 10px;
+    position: relative;
+    right:-47%;
+}
+
+
+
+/* Rocket Section */
+
+section.rocket {
+    display: grid;
+    grid-template-columns: 1fr 100px 1fr;
+    gap: 80px;
+    padding:100px 0;
+    position: relative;
+}
+
+section.rocket .rocket-body {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+
+}
+
+/* To clear space betwen rocket part */
+section.rocket .rocket-body span{
+    font-size:0;
+    position: relative;
+}
+
+section.rocket .rocket-body span img{
+    width: 100%;
+}
+
+section.rocket .block{
+    width: 70%;
+}
+
+section.rocket .block h1 {
+    font-size:32px;
+    font-weight:400;
+}
+
+
+
+section.rocket .block .with-underline {
+    position: relative;
+    margin-bottom: 38px;
+}
+
+section.rocket .block .with-underline::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -11px;
+    display: block;
+    width: 38%;
+    height: 2px;
+    background: var(--pure);
+
+}
+
+section.rocket .block h1.with-underline::before {
+    width:21%;
+}
+
+section.rocket p{
+    line-height:1.6;
+}
+
+
+section.rocket .block h2 {
+  font-weight: 400;
+  margin-bottom:20px;
+}
+
+section.rocket .block.payload {
+    padding-top: 130px;
+
+}
+
+section.rocket .block.payload h2 {
+    padding-left: 80px;
+}
+
+
+section.rocket .block.dragon {
+    padding-top:120px;
+}
+
+
+section.rocket .block button {
+    margin-top: 30px;
+}
+
+
+section.rocket .block.composite {
+    padding-top: 60px;
+}
+
+section.rocket .block.first-stage {
+    padding-top: 60px;
+}
+
+
+/* LHLJHFVLKASDJFISA?JI */
+section.rocket .block.capacity {
+    display: flex;
+    align-items: center;
+    padding-top:40px;
+}
+
+
+section.rocket .block.capacity > div:first-child {
+    margin-right: 40px;
+}
+
+
+section.rocket .block.capacity h4 {
+    font-size: 12px;
+    font-weight:400;
+    margin-bottom:20px;
+}
+
+
+section.rocket .block.capacity h6 {
+    font-size:40px;
+    font-weight:400;
+}
+
+section.rocket .block.capacity h6 small {
+    font-size: 12px;
+}
+
+
+/* left block */
+
+section.rocket .block.second-stage {
+      padding-top: 60PX;
+}
+
+
+section.rocket .right-block .block.capacity {
+    padding-top: 120px;
+}
+
+
+section.rocket .right-block .block.capacity.single {
+    padding-top: 40px;
+}
+
+
+section.rocket .right-block .block.engines{
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+}
+
+section.rocket .right-block .block.engines img {
+    width: 180px;
+}
+
+
+section.rocket .right-block .block.marine {
+    padding-top:100px;
+    width: 70%;
+}
+
+
+
+section.rocket .right-block .block.marine  h2 {
+    font-size:14px;
+    padding-left: 100px;
+    margin-bottom:26px;
+}
+
+
+
+section.rocket .right-block .floating-graphics {
+    position: sticky;
+    float: right;
+    top: 60px;
+    margin-right: -80px;
+}
+
+
+section.rocket .right-block .floating-graphics img {
+    height:350px;
+}
+
+
+/* Rocket body */
+
+/* Rocket spec lines */
+section.rocket .rocket-body span:after, section.rocket .rocket-body span:nth-child(3):before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--pure);
+    transition: width 1s ease-in-out;
+}
+
+section.rocket h2{
+          
+    font-weight:400;
+    position:relative;
+}
+
+
+section.rocket .rocket-body span:nth-child(1):after {
+    bottom: 16px;
+    left: 96%;
+}
+
+section.rocket .rocket-body span:nth-child(2):after {
+    bottom: 62%;
+    right: 100%;
+}
+
+section.rocket .rocket-body span:nth-child(3):after {
+    bottom: 64%;
+    right: 90%;
+}
+
+section.rocket .rocket-body span:nth-child(3):before {
+    bottom: 36%;
+    left: 90%;
+}
+
+section.rocket .rocket-body span.active:nth-child(1):after {
+    width: 120px;
+}
+
+section.rocket .rocket-body span.active:nth-child(2):after {
+    width: 180px;
+}
+
+section.rocket .rocket-body span.active:nth-child(3):after {
+    width: 200px;
+}
+
+section.rocket .rocket-body span.active:nth-child(3):before {
+    width: 160px;
+}
+
+@keyframes jump {
+    50% {
+        transform: translateY(-50px);
+    }
+}
+@keyframes jump2 {
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+section.rocket .rocket-body span.active:nth-child(1) {
+    animation: jump 1s ease-in-out forwards;
+}
+
+section.rocket .rocket-body span.active:nth-child(2) {
+    animation: jump2 1s ease-in-out forwards;
+}
+
+/* Menu Section */
+
+
+.head h1 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+
+    margin-bottom: 30px;
+    font-size: 35px;
+    font-weight:400;
+    /* padding-bottom: 70px; */
+
+}
+.menu h2{
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 5px 30px;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+    color: var(--mild);
+    cursor: pointer;
+    /* border-left: 1px solid; */
+    /* border-right:1px solid ; */
+}
+
+.menu h2:hover{
+    color: var(--pure);
+}
+
+
+/* Shop Section */
+
+#shop{
+    /* background: var(--dark); */
+    position: relative;
+}
+
+#shop img{
+    height:400px;
+    width: 400px;
+ align-items: center;
+}
+
+#shop h1 {
+    text-align: center;
+    margin-bottom:30px ;
+    margin-top:130px ;
+    font-size:35px;
+    font-weight: 500;
+}
+
+#shop h1::after{
+    content: "";
+    /* position: absolute; */
+
+
+     position: absolute;
+    left: 48%;
+    bottom: 95%;
+    display: block;
+    width:3%;
+    height: 2px;
+    background: var(--pure);
+ 
+
+}
+
+
+.shop {
+    display: grid;
+    /* text-align: center; */
+    grid-template-columns: 1fr 1fr 1fr ;
+    align-items: center;
+    justify-content: center;    
+    margin-left: 205px;
+}
+
+.shop p {
+    margin-top: 6px;
+    font-size: 15px;
+    margin-bottom:5px;
+}
+
+.shop h4 {
+    font-size:30px;
+    font-weight: 400;
+    margin-bottom: 15px;
+    /* text-align:inherit; */
+}
+
+
+
+/* Footer */
+
+footer {
+    background: var(--dark);
+    padding: 60px 0;
+    
+}
+
+footer > div{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+footer .copyright span {
+    font-size: 12px;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+footer .copyright  img {
+    height:30px;
+}
+
+footer h1 {
+    font-size: 18px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+footer h1:after{
+
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    display:block;
+    width: 60px;
+    height: 2px;
+    background:var(--pure);
+}
+
+footer ul {
+    list-style:none;
+}
+
+
+footer ul li:nth-child(even){
+    margin: 10px 0;
+}
+
+
+footer ul li a {
+    text-decoration:none;
+    color: var(--mild);
+    line-height:1;
+}
+
+footer ul li a:hover {
+    color: var(--pure);
+}
+
+
+
+footer .icons {
+    display: flex;
+  
+    margin-left: -35px;
+
+}
+footer .footer-socials a {
+    margin-right: 20px;
+    font-size:22px;
+    color: var(--mild);
+}
+
+footer .footer-socials a:hover {
+    color: var(--pure);
+}
